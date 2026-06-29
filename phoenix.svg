@@ -1,32 +1,39 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 210">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
  <defs>
-  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8f682d"/><stop offset=".45" stop-color="#d4b264"/><stop offset=".7" stop-color="#f0d996"/><stop offset="1" stop-color="#a77c38"/></linearGradient>
-  <filter id="glow"><feGaussianBlur stdDeviation=".7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8c6124"/><stop offset=".28" stop-color="#ffd97a"/><stop offset=".52" stop-color="#b57a22"/><stop offset=".76" stop-color="#ffe39a"/><stop offset="1" stop-color="#8f6124"/></linearGradient>
+  <filter id="shine" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="1.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
  </defs>
  <style>
-  .line{fill:none;stroke:url(#gold);stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:900;stroke-dashoffset:900;animation:draw 2.2s 3s ease forwards}
-  .fine{stroke-width:1.15}.main{stroke-width:2}.soft{opacity:.65}
-  @keyframes draw{to{stroke-dashoffset:0}}
-  @media(prefers-reduced-motion:reduce){.line{stroke-dashoffset:0;animation:none}}
+  .mark{fill:none;stroke:url(#gold);stroke-width:4.2;stroke-linecap:round;stroke-linejoin:round;filter:url(#shine);stroke-dasharray:700;stroke-dashoffset:700;animation:draw 2.15s 4.15s ease forwards}
+  .inner{stroke-width:1.15;opacity:.72}
+  .star{fill:#ffe9a9;stroke:none;filter:url(#shine);opacity:0;animation:appear .8s 5.2s ease forwards}
+  @keyframes draw{to{stroke-dashoffset:0}}@keyframes appear{to{opacity:1}}
+  @media(prefers-reduced-motion:reduce){.mark{stroke-dashoffset:0;animation:none}.star{opacity:1;animation:none}}
  </style>
- <g class="line main" filter="url(#glow)">
-  <path d="M150 47c-10 5-17 14-18 25-1 13 8 22 18 27 10-5 19-14 18-27-1-11-8-20-18-25Z"/>
-  <path d="M150 47c-2-13 5-24 15-31-2 11 2 18 10 22-10-1-17 2-25 9Z"/>
-  <path d="M140 65c5-4 13-4 18 0M147 74c2 2 4 2 6 0"/>
-  <path d="M134 77C105 66 80 46 57 19c4 25 13 43 28 57-22-11-42-27-61-47 8 37 31 65 67 83-25-5-49-17-72-35 17 42 54 69 111 79"/>
-  <path d="M166 77c29-11 54-31 77-58-4 25-13 43-28 57 22-11 42-27 61-47-8 37-31 65-67 83 25-5 49-17 72-35-17 42-54 69-111 79"/>
-  <path d="M139 94c-8 22-6 43 11 62 17-19 19-40 11-62"/>
-  <path d="M150 104v90M150 156c-18 16-29 33-30 50 13-10 23-20 30-31 7 11 17 21 30 31-1-17-12-34-30-50Z"/>
+ <g class="mark">
+  <!-- long, elegant neck and head -->
+  <path d="M148 99C138 85 140 67 154 56c8-6 19-8 29-4-11 2-18 8-21 17-4 12 2 22 6 34"/>
+  <path d="M154 56c6-11 18-15 31-9-9 0-14 3-19 8"/>
+  <!-- upper wings -->
+  <path d="M143 116C111 91 73 78 30 45c8 31 30 52 68 65 17 6 29 15 38 28"/>
+  <path d="M165 116c32-25 70-38 113-71-8 31-30 52-68 65-17 6-29 15-38 28"/>
+  <!-- middle wings -->
+  <path d="M138 133c-28-19-62-25-101-49 10 27 31 44 67 52 13 3 23 9 31 18"/>
+  <path d="M170 133c28-19 62-25 101-49-10 27-31 44-67 52-13 3-23 9-31 18"/>
+  <!-- lower wings -->
+  <path d="M136 151c-22-13-48-16-75-31 11 21 29 33 55 37 8 1 14 5 19 10"/>
+  <path d="M172 151c22-13 48-16 75-31-11 21-29 33-55 37-8 1-14 5-19 10"/>
+  <!-- body -->
+  <path d="M148 98c-3 28-9 50-3 72 5 18 20 28 31 42 16 21 15 44 5 62"/>
+  <path d="M168 102c4 29-3 49-15 67-7 11-7 24 2 37 14 21 18 46 6 73"/>
+  <!-- flowing tail -->
+  <path d="M153 169c-3 28 19 45 17 72-2 23-17 39-31 53"/>
+  <path d="M159 199c-2 27-20 42-34 59-9 11-13 23-13 35"/>
+  <path d="M173 213c13 19 13 40 3 60-3 7-5 13-5 19"/>
  </g>
- <g class="line fine">
-  <path d="M129 84C104 80 83 67 63 47M124 94C91 90 62 73 37 48M119 106C82 104 54 91 31 70M115 119C82 120 57 113 37 99M112 132C84 136 63 134 46 129"/>
-  <path d="M171 84c25-4 46-17 66-37M176 94c33-4 62-21 87-46M181 106c37-2 65-15 88-36M185 119c33 1 58-6 78-20M188 132c28 4 49 2 66-3"/>
-  <path d="M132 101c-9 14-12 28-8 42M168 101c9 14 12 28 8 42M142 112c-3 15 0 29 8 42M158 112c3 15 0 29-8 42"/>
-  <path d="M143 166c-10 11-15 21-16 31M157 166c10 11 15 21 16 31M150 176c-3 9-4 18-3 27"/>
+ <g class="mark inner">
+  <path d="M33 47c17 22 42 38 74 50M42 85c20 17 45 28 75 34M66 121c17 13 36 20 56 23"/>
+  <path d="M275 47c-17 22-42 38-74 50M266 85c-20 17-45 28-75 34M242 121c-17 13-36 20-56 23"/>
  </g>
- <g class="line fine soft">
-  <path d="M112 72 89 38M102 80 71 42M92 91 52 57M84 102 38 77M81 116 48 106"/>
-  <path d="m188 72 23-34M198 80l31-38M208 91l40-34M216 102l46-25M219 116l33-10"/>
-  <circle cx="144" cy="68" r="1.4" fill="#e8ca7d" stroke="none"/>
- </g>
+ <path class="star" d="M154 18c2 14 5 17 19 19-14 2-17 5-19 19-2-14-5-17-19-19 14-2 17-5 19-19Z"/>
 </svg>
