@@ -82,8 +82,8 @@ body {
 }
 
 .phoenix {
-    width: 300px;
-    height: 300px;
+    width: 1000px;
+    height: 3000px;
     object-fit: contain;
     margin-bottom: 8px;
     filter: invert(61%) sepia(48%) saturate(860%) hue-rotate(359deg) brightness(94%) contrast(88%) drop-shadow(0 5px 10px rgba(178, 138, 69, .2))
