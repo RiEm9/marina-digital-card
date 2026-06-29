@@ -82,10 +82,11 @@ body {
 }
 
 .phoenix {
-    width: 1000px;
-    height: 3000px;
+    width: clamp(130px, 42vw, 180px);
+    height: auto;
+    display: block;
     object-fit: contain;
-    margin-bottom: 8px;
+    margin: 0 auto 8px;
     filter: invert(61%) sepia(48%) saturate(860%) hue-rotate(359deg) brightness(94%) contrast(88%) drop-shadow(0 5px 10px rgba(178, 138, 69, .2))
 }
 
