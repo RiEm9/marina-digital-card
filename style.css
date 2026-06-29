@@ -33,6 +33,8 @@ body {
         linear-gradient(145deg, #fbfaf7, #ece9e2);
 }
 
+/* INTRO */
+
 .intro {
     position: fixed;
     inset: 0;
@@ -50,14 +52,20 @@ body {
     animation: glow 1.5s 3s ease forwards;
 }
 
+/* ПЕРО */
+
 .feather {
     position: absolute;
     top: 8%;
     left: 50%;
     width: 78px;
+    transform-origin: 50% 18%;
     filter: drop-shadow(0 0 8px rgba(226, 196, 123, .28));
-    animation: fall 3.9s linear forwards;
+    animation: fall 3.9s cubic-bezier(.34, .02, .18, 1) forwards;
+    will-change: transform, opacity;
 }
+
+/* ТОЧКА КАСАНИЯ И ВОЛНА */
 
 .touch {
     position: absolute;
@@ -66,11 +74,10 @@ body {
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: #eed797;
-    opacity: 0;
+    background: rgba(238, 215, 151, 0);
     z-index: 2;
     transform: translate(-50%, -50%);
-    animation: touch 1.2s 3.45s ease-out forwards;
+    animation: touch 1.25s 3.75s ease-out forwards;
 }
 
 .touch::after {
@@ -78,24 +85,31 @@ body {
     position: absolute;
     left: 50%;
     top: 50%;
+
     width: 20px;
     height: 20px;
     border-radius: 50%;
+
     transform: translate(-50%, -50%) scale(0);
     opacity: 0;
+
     background: radial-gradient(
         circle,
         rgba(255, 232, 165, .95) 0%,
-        rgba(223, 185, 99, .45) 18%,
-        rgba(223, 185, 99, .18) 38%,
-        rgba(223, 185, 99, .04) 62%,
-        transparent 72%
+        rgba(223, 185, 99, .48) 18%,
+        rgba(223, 185, 99, .2) 38%,
+        rgba(223, 185, 99, .06) 62%,
+        transparent 74%
     );
+
     box-shadow:
         0 0 18px rgba(255, 220, 140, .75),
-        0 0 45px rgba(223, 185, 99, .45);
-    animation: lightWave 1.45s 3.65s ease-out forwards;
+        0 0 48px rgba(223, 185, 99, .45);
+
+    animation: lightWave 1.55s 3.9s ease-out forwards;
 }
+
+/* ОСНОВНАЯ КАРТОЧКА */
 
 .card {
     width: min(100%, 430px);
@@ -136,6 +150,8 @@ h1 {
     letter-spacing: -.045em;
 }
 
+/* ССЫЛКИ */
+
 .links {
     display: grid;
     gap: 14px;
@@ -163,6 +179,8 @@ h1 {
     font-size: 8px;
 }
 
+/* ПОДХОД */
+
 .approach {
     margin-top: auto;
     padding-top: 52px;
@@ -182,6 +200,8 @@ h1 {
     font: italic 500 24px/1.25 Georgia, serif;
     color: #5e5952;
 }
+
+/* ПОЯВЛЕНИЕ ЭЛЕМЕНТОВ */
 
 .reveal {
     opacity: 0;
@@ -238,6 +258,8 @@ body.ready .approach {
     animation-delay: 1.18s;
 }
 
+/* БЛИК ПО КНОПКАМ */
+
 body.ready .link-card {
     position: relative;
     overflow: hidden;
@@ -247,6 +269,7 @@ body.ready .link-card::after {
     content: "";
     position: absolute;
     inset: 0;
+
     background: linear-gradient(
         110deg,
         transparent 0%,
@@ -255,6 +278,7 @@ body.ready .link-card::after {
         rgba(255, 226, 157, .35) 55%,
         transparent 100%
     );
+
     transform: translateX(-120%);
     pointer-events: none;
     animation: buttonLight 1.2s ease forwards;
@@ -276,59 +300,79 @@ body.ready .link-card:nth-child(4)::after {
     animation-delay: 1.5s;
 }
 
+/* АНИМАЦИИ */
+
 @keyframes fall {
     0% {
-        transform: translate3d(-50%, -70px, 0) rotate(-17deg);
+        transform: translate3d(-50%, -80px, 0) rotate(-26deg) scale(.96);
         opacity: 0;
     }
 
-    8% {
+    7% {
         opacity: 1;
+        transform: translate3d(calc(-50% - 6px), -34px, 0) rotate(-18deg) scale(1);
     }
 
-    16% {
-        transform: translate3d(calc(-50% - 24px), 8svh, 0) rotate(13deg);
+    15% {
+        transform: translate3d(calc(-50% - 28px), 7svh, 0) rotate(16deg);
     }
 
-    32% {
-        transform: translate3d(calc(-50% + 20px), 18svh, 0) rotate(-10deg);
+    24% {
+        transform: translate3d(calc(-50% - 11px), 14svh, 0) rotate(4deg);
     }
 
-    49% {
-        transform: translate3d(calc(-50% - 15px), 29svh, 0) rotate(9deg);
+    34% {
+        transform: translate3d(calc(-50% + 24px), 21svh, 0) rotate(-17deg);
     }
 
-    65% {
-        transform: translate3d(calc(-50% + 12px), 40svh, 0) rotate(-6deg);
+    45% {
+        transform: translate3d(calc(-50% + 8px), 29svh, 0) rotate(-6deg);
     }
 
-    80% {
-        transform: translate3d(calc(-50% - 7px), 49svh, 0) rotate(4deg);
+    56% {
+        transform: translate3d(calc(-50% - 22px), 36svh, 0) rotate(14deg);
+    }
+
+    67% {
+        transform: translate3d(calc(-50% - 4px), 43svh, 0) rotate(5deg);
+    }
+
+    78% {
+        transform: translate3d(calc(-50% + 16px), 49svh, 0) rotate(-10deg);
+    }
+
+    88% {
+        transform: translate3d(calc(-50% + 4px), 53svh, 0) rotate(-3deg);
+    }
+
+    96% {
+        transform: translate3d(calc(-50% - 3px), 56svh, 0) rotate(2deg);
     }
 
     100% {
-        transform: translate3d(-50%, 57svh, 0);
+        transform: translate3d(-50%, 57svh, 0) rotate(0deg);
         opacity: 1;
     }
 }
 
 @keyframes touch {
     0% {
-        opacity: 0;
+        background: rgba(238, 215, 151, 0);
         box-shadow: 0 0 0 rgba(238, 215, 151, 0);
     }
 
     15% {
-        opacity: 1;
+        background: rgba(238, 215, 151, 1);
         box-shadow: 0 0 18px rgba(238, 215, 151, .9);
     }
 
     55% {
-        opacity: 1;
+        background: rgba(238, 215, 151, 1);
+        box-shadow: 0 0 24px rgba(238, 215, 151, .65);
     }
 
     100% {
-        opacity: 0;
+        background: rgba(238, 215, 151, 0);
         box-shadow: 0 0 28px rgba(238, 215, 151, 0);
     }
 }
@@ -339,17 +383,17 @@ body.ready .link-card:nth-child(4)::after {
         transform: translate(-50%, -50%) scale(0);
     }
 
-    12% {
+    10% {
         opacity: 1;
     }
 
-    55% {
+    52% {
         opacity: .85;
     }
 
     100% {
         opacity: 0;
-        transform: translate(-50%, -50%) scale(38);
+        transform: translate(-50%, -50%) scale(48);
     }
 }
 
@@ -381,6 +425,8 @@ body.ready .link-card:nth-child(4)::after {
         opacity: 0;
     }
 }
+
+/* ЕСЛИ У ПОЛЬЗОВАТЕЛЯ ОТКЛЮЧЕНЫ АНИМАЦИИ */
 
 @media (prefers-reduced-motion: reduce) {
     .intro,
