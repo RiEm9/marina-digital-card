@@ -7,7 +7,7 @@ const CONTACTS = {
 const finishIntro = () => document.body.classList.add("ready");
 const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-setTimeout(finishIntro, reducedMotion ? 0 : 4700);
+setTimeout(finishIntro, reducedMotion ? 0 : 5580);
 
 document.querySelector(".skip").addEventListener("click", finishIntro);
 document.querySelector(".intro").addEventListener("click", finishIntro);
