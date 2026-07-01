@@ -70,16 +70,16 @@ body {
     position: absolute;
     top: 6%;
     left: 50%;
-    width: 72px;
+    width: 1px;
     z-index: 2;
     animation: featherDescent 5.6s linear forwards;
     will-change: transform, opacity;
 }
 
 .feather {
-    width: 72px;
+    width: clamp(112px, 30vw, 136px);
     display: block;
-    transform-origin: 48% 14%;
+    transform-origin: 2% 98%;
     filter: drop-shadow(0 3px 10px rgba(226, 196, 123, .24));
     animation: featherAir 5.6s linear forwards;
     will-change: transform, opacity;
@@ -374,48 +374,48 @@ body.ready .link-card:nth-child(4)::after {
 @keyframes featherAir {
     0% {
         opacity: 0;
-        transform: rotate(-11deg) scale(.96);
+        transform: translate(-1.5%, -98%) rotate(-5deg) scale(.94);
         animation-timing-function: ease-out;
     }
 
     9% {
         opacity: 1;
-        transform: rotate(-9deg) scale(.98);
+        transform: translate(-1.5%, -98%) rotate(-3deg) scale(.97);
     }
 
     22% {
-        transform: rotate(6deg) scale(1);
+        transform: translate(-1.5%, -98%) rotate(3.5deg) scale(1);
         animation-timing-function: ease-in-out;
     }
 
     39% {
-        transform: rotate(-4.5deg) scale(1);
+        transform: translate(-1.5%, -98%) rotate(-2.6deg) scale(1);
         animation-timing-function: ease-in-out;
     }
 
     56% {
-        transform: rotate(3deg) scale(1);
+        transform: translate(-1.5%, -98%) rotate(1.8deg) scale(1);
         animation-timing-function: ease-in-out;
     }
 
     72% {
-        transform: rotate(-1.8deg) scale(1);
+        transform: translate(-1.5%, -98%) rotate(-1.1deg) scale(1);
         animation-timing-function: ease-in-out;
     }
 
     85% {
-        transform: rotate(.8deg) scale(1);
+        transform: translate(-1.5%, -98%) rotate(.55deg) scale(1);
         animation-timing-function: ease-in-out;
     }
 
     94% {
-        transform: rotate(-.25deg) scale(1);
+        transform: translate(-1.5%, -98%) rotate(-.2deg) scale(1);
         animation-timing-function: ease-out;
     }
 
     100% {
-        opacity: .96;
-        transform: rotate(0deg) scale(.99);
+        opacity: .98;
+        transform: translate(-1.5%, -98%) rotate(0deg) scale(.99);
     }
 }
 
